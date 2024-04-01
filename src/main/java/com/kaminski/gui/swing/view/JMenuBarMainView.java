@@ -3,9 +3,9 @@ package com.kaminski.gui.swing.view;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 @Component
 public class JMenuBarMainView extends JMenuBar {
