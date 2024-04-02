@@ -1,11 +1,14 @@
 package com.kaminski.gui.swing.view;
 
+import com.kaminski.gui.swing.utils.SwingUtils;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 @Component
 public class JMenuBarMainView extends JMenuBar {
@@ -26,6 +29,18 @@ public class JMenuBarMainView extends JMenuBar {
         var jMenuItemExit = new JMenuItem("Sair");
         var jMenuItemSystemDetails = new JMenuItem("Detalhes");
         var jMenuItemDeviceDetails = new JMenuItem("Meu Dispositivo");
+
+        jMenuItemExit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                var response = SwingUtils.showConfirmeJOptionPane(
+                        "Aviso","Deseja fechar a aplicação?");
+
+                if(response)
+                    System.exit(0);
+            }
+        });
 
         jMenuFile.add(jMenuItemExit);
         jMenuSystem.add(jMenuItemSystemDetails);
