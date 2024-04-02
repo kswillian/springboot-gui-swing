@@ -1,5 +1,6 @@
 package com.kaminski.gui.swing.view;
 
+import com.kaminski.gui.swing.view.menu.JMenuBarMainView;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -9,31 +10,21 @@ import java.awt.BorderLayout;
 
 @Component
 @RequiredArgsConstructor
-public class JFrameMainView extends JFrame {
+public class JFrameMainView {
 
+    private final JFrame jFrame;
     private final JMenuBarMainView jMenuBarMainView;
     private final JPanelWelcomeView jPaneLWelcomeView;
     private final JPanelFooterView jPanelFooterView;
-    private static final String APPLICATION_NAME = "Spring + Swing";
 
     @PostConstruct
-    public JFrame init(){
-        create();
-        return this;
+    public void init(){
+
+        jFrame.setJMenuBar(jMenuBarMainView.create());
+        jFrame.getContentPane().add(jPaneLWelcomeView.create());
+        jFrame.add(jPanelFooterView.create(), BorderLayout.SOUTH);
+        jFrame.setVisible(true);
+
     }
 
-    private void create(){
-
-        setTitle(APPLICATION_NAME);
-        setSize(800, 500);
-        setResizable(false);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-        setJMenuBar(jMenuBarMainView);
-        getContentPane().add(jPaneLWelcomeView);
-        add(jPanelFooterView, BorderLayout.SOUTH);
-
-        setVisible(true);
-    }
 }

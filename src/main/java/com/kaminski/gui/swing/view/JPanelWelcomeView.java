@@ -10,21 +10,16 @@ import java.awt.GridBagLayout;
 @Component
 public class JPanelWelcomeView extends JPanel {
 
-    private JLabel jLabel;
-
-    @PostConstruct
-    public JPanel init(){
-        create();
-        return this;
-    }
-
-    private void create(){
+    public JPanel create(){
 
         setLayout(new GridBagLayout());
 
-        jLabel = new JLabel();
+        var jLabel = new JLabel();
         jLabel.setText("Bem-vindo!");
 
         add(jLabel);
+
+        return this;
+
     }
 }

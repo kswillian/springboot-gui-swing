@@ -1,8 +1,9 @@
 package com.kaminski.gui.swing;
 
-import com.kaminski.gui.swing.view.JFrameMainView;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+
+import javax.swing.*;
 
 @SpringBootApplication
 public class Application {
@@ -12,7 +13,7 @@ public class Application {
 		var applicationContext = new SpringApplicationBuilder(Application.class)
 				.headless(false)
 				.run(args);
-		applicationContext.getBean(JFrameMainView.class);
+		applicationContext.getBean(JFrame.class);
 	}
 
 }
